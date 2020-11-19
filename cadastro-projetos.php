@@ -33,7 +33,7 @@
 </head>
 <body>
     <section>
-        <form class="" action="cadastro-projetos-db.php" method="post">
+        <form class="" action="cadastro-projetos-db.php" enctype="multipart/form-data" method="post">
             <br>
             <div>
                 <label for="nome-projeto">Nome do projeto</label><br>
@@ -47,7 +47,7 @@
 
             <div class="form-group">
                 <label for="exampleFormControlFile1">Foto demonstrativa(Opcional)</label><br>
-                <input type="file" class="form-control-file" id="exampleFormControlFile1" required>
+                <input type="file" class="form-control-file" id="foto" name="foto" required>
             </div>
 
             <div>

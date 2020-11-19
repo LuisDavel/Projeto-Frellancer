@@ -5,13 +5,26 @@
 
     $nome_projeto = $_POST['nome-projeto'];
     $descri_projeto = $_POST['descricao-projeto'];
-    $foto_projeto = null;
     $tipo_servico = $_POST['servico-projeto'];
     $orcamento_projeto = $_POST['orcamento-projeto'];
     $prazo_data = $_POST['prazo-projeto'];
     $prazo_tempo = $_POST['prazo-tempo'];
     $valor_projeto = $_POST['valor-projeto'];
     $nivel_tecnico = $_POST['nivel-experiencia'];
+
+
+    $arquivo  = $_FILES['foto'];
+    $foto_projeto  = null;
+
+    if ($arquivo) {
+        $caminho = $arquivo['tmp_name'];
+        $novo = date('YmdHis') . $arquivo['name'];
+        if( move_uploaded_file($caminho, "img_projeto/$novo")){
+             $foto_projeto = "'$novo'";
+        }
+        //echo $foto_projeto;
+     }
+ 
 
     $prazo_projeto = $prazo_data . " ". $prazo_tempo;
 
@@ -23,7 +36,7 @@
 
 
     }else{
-        $sql = "INSERT INTO projetos VALUES (null, '$nome_projeto', '$descri_projeto', '$foto_projeto', '$tipo_servico', '$orcamento_projeto' , '$prazo_projeto', '$valor_projeto', '$nivel_tecnico' )";
+        $sql = "INSERT INTO projetos VALUES (null, '$nome_projeto', '$descri_projeto', $foto_projeto, '$tipo_servico', '$orcamento_projeto' , '$prazo_projeto', '$valor_projeto', '$nivel_tecnico' )";
 
         $retorno = mysqli_query($con, $sql);
     
