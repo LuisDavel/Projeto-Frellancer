@@ -1,7 +1,15 @@
-<?php 
-    include('conexao.php');
-?>
+<?php
+  include('conexao.php');
+  
+  if (@$_GET['acao'] == "sair") {
+     session_destroy();
+  }
+  if (@$_SESSION['id_usuario'] == "") {
+    header("Location:index.php");
+  }
 
+  echo($_SESSION['nome_completo'])
+?>
 
 
 <!DOCTYPE html>

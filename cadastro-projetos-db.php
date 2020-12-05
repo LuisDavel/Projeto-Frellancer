@@ -11,7 +11,7 @@
     $prazo_tempo = $_POST['prazo-tempo'];
     $valor_projeto = $_POST['valor-projeto'];
     $nivel_tecnico = $_POST['nivel-experiencia'];
-
+    $usuario = $_SESSION ['id_usuario'];
 
     $arquivo  = $_FILES['foto'];
     $foto_projeto  = null;
