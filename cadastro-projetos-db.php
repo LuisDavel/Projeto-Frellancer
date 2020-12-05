@@ -36,7 +36,7 @@
 
 
     }else{
-        $sql = "INSERT INTO projetos VALUES (null, '$nome_projeto', '$descri_projeto', $foto_projeto, '$tipo_servico', '$orcamento_projeto' , '$prazo_projeto', '$valor_projeto', '$nivel_tecnico' )";
+        $sql = "INSERT INTO projetos VALUES (null, '$nome_projeto', '$descri_projeto', $foto_projeto, '$tipo_servico', '$orcamento_projeto' , '$prazo_projeto', '$valor_projeto', '$nivel_tecnico', '$usuario' )";
 
         $retorno = mysqli_query($con, $sql);
     

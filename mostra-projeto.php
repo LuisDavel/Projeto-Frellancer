@@ -7,10 +7,12 @@
   if (@$_SESSION['id'] != "") {
     header("Location:index.php");
   }
+
+  $id = $_GET['id'];
   
 ?>
 <?php 
-	$sql = "SELECT nome_projeto FROM projetos";
+	$sql = "SELECT nome_projeto FROM projetos where id_projetos = $id";
 	//echo $sql;
 	$retorno = mysqli_query($con, $sql);
 	if(!$retorno) {
@@ -54,7 +56,7 @@
     
 		<tbody>
 		    <?php
-                $sql = "SELECT id_projetos, nome_projeto, descricao_projeto, foto, tipo_servico, prazo FROM projetos";
+                $sql = "SELECT id_projetos, nome_projeto, descricao_projeto, foto, tipo_servico, prazo FROM projetos where id_projetos = $id";
                 //echo $sql;
                 $retorno = mysqli_query($con, $sql);
                 if(!$retorno) {
@@ -80,7 +82,7 @@
 					    	</td>
                             <td><?php echo $item['tipo_servico']; ?></td>
                             <td><?php echo $item['prazo']; ?></td>
-                            <td><a href="bate-papo.php?id= <?php echo $item['id_projetos']; ?>" class="btn btn-primary">Saiba Mais</a></td>
+                            <td><a href="bate-papo.php?id= <?php echo $item['id_projetos']; ?>" class="btn btn-primary">Resolver</a></td>
                         </tr>
                         
 	        <?php
