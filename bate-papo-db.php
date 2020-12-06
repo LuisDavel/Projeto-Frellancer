@@ -10,6 +10,18 @@
     $conversa = $_POST['msg'];
     $fim_projeto = null;
     $entrar_termo = null;
+    $foto = 'null';
+
+    if ($arquivo) {
+        $caminho = $arquivo['tmp_name'];
+        $novo = date('YmdHis') . $arquivo['name'];
+        if( move_uploaded_file($caminho, "img_chat/$novo")){
+            
+             $foto = "'$novo'";
+        }
+        //echo $foto_projeto;
+     }
+
 
     $sql = "INSERT INTO bate_papo VALUES (null, '$id_freela', '$id_cliente', '$conversa', ' $id_projeto', '$fim_projeto','$entrar_termo')";
     $retorno = mysqli_query($con, $sql);

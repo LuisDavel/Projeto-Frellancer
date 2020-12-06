@@ -50,19 +50,26 @@
                             <form action="cadastro_bd.php" method="post">
                                 <div class="form-group">
                                     <label>Nome Completo</label>
-                                    <input class="au-input au-input--full" type="text" name="nome_completo" placeholder="Nome Completo">
+                                    <input class="au-input au-input--full" type="text" name="nome_completo" placeholder="Nome Completo" required="">
                                 </div>
                                 <div class="form-group">
                                     <label>Email Address</label>
-                                    <input class="au-input au-input--full" type="email" name="email" placeholder="Email">
+                                    <input class="au-input au-input--full" type="email" name="email" placeholder="Email" required="">
                                 </div>
                                 <div class="form-group">
                                     <label>Password</label>
-                                    <input class="au-input au-input--full" type="password" name="senha" placeholder="Senha">
+                                    <input class="au-input au-input--full" type="password" name="senha" placeholder="Senha" required="">
+                                </div>
+                                <div class="form-group">
+                                <label for="tipoUsuario">Quero ser:</label>
+                                    <select class="form-control" id="tipoUsuario" name="tipoUsuario">
+                                      <option value="F">Freelancer</option>
+                                      <option value="C">Contratante</option>
+                                    </select>
                                 </div>
                                 <div class="login-checkbox">
                                     <label>
-                                        <input type="checkbox" name="aggree">Aceito os termos de uso
+                                        <input type="checkbox" name="aggree" required="">Aceito os termos de uso
                                     </label>
                                 </div>
                                 <button class="au-btn au-btn--block au-btn--blue m-b-20" type="submit">cadastrar</button>

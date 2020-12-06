@@ -28,7 +28,8 @@
    
     <div>
     <?php 
-	    $sql = "SELECT id_freela, conversa FROM bate_papo Where id_projeto = $id && id_freela = $usuario";
+    /// SELECT que mostra a listagem o chat entre freela e cliente
+	    $sql = "SELECT id_freela, conversa FROM bate_papo Where id_projeto = $id";
 	    //echo $sql;
 	    $retorno = mysqli_query($con, $sql);
 	    if(!$retorno) {
@@ -58,8 +59,8 @@
             <input class="" type="text" name="msg" id="msg" maxlength="300" required>
             
             <label for="chat">Afirmar contrato</label>
-            <input type="checkbox" id="afimar" name="afimar" value="1">
-
+            <input type="checkbox" id="afimar" name="afimar" value="1"><br>
+            <input type="file" class="form-control-file" id="foto" name="foto" placeholder="(Opcional)"><br><br>   
             <button type="submit" class="btn btn-primary my-1">Enviar</button>
         </form>
         

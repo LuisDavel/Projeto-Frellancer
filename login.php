@@ -1,6 +1,5 @@
 <?php
   include('conexao.php');
-  
   if (@$_GET['acao'] == "sair") {
      session_destroy();
   }

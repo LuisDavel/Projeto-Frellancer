@@ -34,13 +34,13 @@
     <a href="login.php?acao=sair">Sair</a>
     
     <?php 
-        $sql = "SELECT * FROM usuario where tipo_usuario = 'F' and id_usuario = $id_usuario";
+        $sql = "SELECT * FROM usuario where tipo_usuario = 'C' and id_usuario = $id_usuario";
         //echo $sql;
         $retorno = mysqli_query($con, $sql);
         if (mysqli_num_rows($retorno) == 1){
     
 
-	        $sql = "SELECT * FROM projetos";
+	        $sql = "SELECT * FROM projetos WHERE id_cliente = '$id_usuario'";
 	        //echo $sql;
 	        $retorno = mysqli_query($con, $sql);
 	        if(!$retorno) {
@@ -67,14 +67,17 @@
         </div>
 
     <?php            
-                    }
-                }
+            }
+        }
 
-         }else{
+    ?>
+    ------------------------------
+    <?php 
+    }else{
 // colocar algo
 
     
-        header('location: index_cliente.php');
+       
     }
     ?>
 
