@@ -32,11 +32,11 @@
     $retorno = mysqli_query($con, $sql);
 
     if(mysqli_num_rows($retorno) > 0) {
-        echo 'Cadastro não';
+        echo 'Cadastro não efetuado';
 
 
     }else{
-        $sql = "INSERT INTO projetos VALUES (null, '$nome_projeto', '$descri_projeto', $foto_projeto, '$tipo_servico', '$orcamento_projeto' , '$prazo_projeto', '$valor_projeto', '$nivel_tecnico', '$usuario' )";
+        $sql = "INSERT INTO projetos VALUES (null, '$nome_projeto', '$descri_projeto', '$novo', '$tipo_servico', '$orcamento_projeto' , '$prazo_projeto', '$valor_projeto', '$nivel_tecnico', '$usuario', 0 )";
 
         $retorno = mysqli_query($con, $sql);
     

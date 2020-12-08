@@ -35,24 +35,22 @@
     
     <?php 
         $sql = "SELECT * FROM usuario where tipo_usuario = 'F' and id_usuario = $id_usuario";
-        //echo $sql;
         $retorno = mysqli_query($con, $sql);
         if (mysqli_num_rows($retorno) == 1){
     
 
-	        $sql = "SELECT * FROM projetos";
-	        //echo $sql;
+	        $sql = "SELECT * FROM projetos WHERE id_freela = 0 ";
 	        $retorno = mysqli_query($con, $sql);
 	        if(!$retorno) {
 	        	echo mysqli_error($con);
 	        } else {
-            
 
 	?>
     <?php
-            while($item = mysqli_fetch_array($retorno, MYSQLI_ASSOC)) {
+          
+              while($item = mysqli_fetch_array($retorno, MYSQLI_ASSOC)) {
     ?>
-      
+            
         <div class="row ">
           <div class="">
                 <div class="card"  >
@@ -66,21 +64,60 @@
           </div>
         </div>
 
-    <?php            
-                    }
-                }
+    <?php  
+             // }          
+            }
+          }
 
          }else{
-// colocar algo
+
 
     
         header('location: index_cliente.php');
     }
     ?>
-
+------------------------- Projeto em andamento -------------------------
     
-    
+<?php 
 
+	        $sql2 = "SELECT * FROM projetos WHERE id_freela = $id_usuario ";
+
+	        $retorno2 = mysqli_query($con, $sql2);
+	        if(!$retorno2) {
+	        	echo mysqli_error($con);
+	        } else {
+	?>
+    <?php
+          
+              while($item2 = mysqli_fetch_array($retorno2, MYSQLI_ASSOC)) {
+    ?>
+            
+        <div class="row ">
+          <div class="">
+                <div class="card"  >
+                    <img class="foto" src= "img_projeto/<?php echo $item2 ['foto']; ?>" alt="<?php echo $item ['foto'];?>">
+                    <div class="card-body">
+                        <h5 class="card-title"><?php echo $item2 ['nome_projeto']; ?></h5>
+                        <?php 
+                          $sql1 = "SELECT MAX(id_chat) as maxId, conversa  FROM bate_papo WHERE id_cliente = '$id_usuario'";
+	                        $retorno1 = mysqli_query($con, $sql1);
+                          while($item1 = mysqli_fetch_array($retorno1, MYSQLI_ASSOC)) {
+                        ?>
+                         <p class="card-text"><?php echo $item1 ['conversa']; ?></p>
+
+                        <?php
+                            }
+                        ?>
+                        <a href="bate-papo.php?id= <?php echo $item2['id_projetos']; ?>" class="btn btn-primary">Abrir conversa</a>
+                    </div>
+                </div>
+          </div>
+        </div>
+
+    <?php  
+            }
+          }
+        ?>
 
 </body>
 </html>

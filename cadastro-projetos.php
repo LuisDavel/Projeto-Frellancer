@@ -55,7 +55,7 @@
 
             <div class="form-group">
                 <label for="exampleFormControlFile1">Foto demonstrativa(Opcional)</label><br>
-                <input type="file" class="form-control-file" id="foto" name="foto" required>
+                <input type="file" class="form-control-file" id="foto" name="foto">
             </div>
 
             <div>

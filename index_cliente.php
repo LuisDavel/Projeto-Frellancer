@@ -40,7 +40,7 @@
         if (mysqli_num_rows($retorno) == 1){
     
 
-	        $sql = "SELECT * FROM projetos WHERE id_cliente = '$id_usuario'";
+	        $sql = "SELECT * FROM projetos WHERE id_cliente = '$id_usuario' and id_freela =  0";
 	        //echo $sql;
 	        $retorno = mysqli_query($con, $sql);
 	        if(!$retorno) {
@@ -60,7 +60,7 @@
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $item ['nome_projeto']; ?></h5>
                         <p class="card-text"><?php echo $item ['descricao_projeto']; ?></p>
-                        <a href="mostra-projeto.php?id= <?php echo $item['id_projetos']; ?>" class="btn btn-primary">Saiba Mais</a>
+                        <a href="mostra-projeto.php?id= <?php echo $item['id_projetos']; ?>" class="btn btn-primary">Editar Projeto</a>
                     </div>
                 </div>
           </div>
@@ -73,12 +73,57 @@
     ?>
     ------------------------------
     <?php 
-    }else{
-// colocar algo
-
+        $sql = "SELECT * FROM bate_papo where id_cliente = $id_usuario";
+        $retorno = mysqli_query($con, $sql);
+        if (mysqli_num_rows($retorno) == 1){
     
-       
+
+	        $sql = "SELECT * FROM projetos WHERE id_cliente = '$id_usuario'";
+	        //echo $sql;
+	        $retorno = mysqli_query($con, $sql);
+	        if(!$retorno) {
+	        	echo mysqli_error($con);
+	        } else {
+            
+
+	?>
+    <?php
+            while($item = mysqli_fetch_array($retorno, MYSQLI_ASSOC)) {
+    ?>
+      
+        <div class="row ">
+          <div class="">
+                <div class="card"  >
+                    <img class="foto" src= "img_projeto/<?php echo $item ['foto']; ?>" alt="<?php echo $item ['foto'];?>">
+                    <div class="card-body">
+                        <h5 class="card-title"><?php echo $item ['nome_projeto']; ?></h5>
+                        <?php 
+                            $sql = "SELECT MAX(id_chat) as maxId FROM bate_papo WHERE id_cliente = '$id_usuario'";
+	                        $retorno = mysqli_query($con, $sql);
+                            if($item = mysqli_fetch_array($retorno, MYSQLI_ASSOC) == 1){
+                        ?>
+                         <p class="card-text"><?php echo $item ['conversa']; ?></p>
+
+                        <?php
+                            }
+                        ?>
+                        <a href="bate-papo.php?id= <?php echo $item['id_projetos']; ?>" class="btn btn-primary">Responder</a>
+                    </div>
+                </div>
+          </div>
+        </div>
+
+    <?php            
+            }
+        }    
+?>
+    <?php 
     }
+// colocar algo
+        
+}
+       
+    
     ?>
 
     

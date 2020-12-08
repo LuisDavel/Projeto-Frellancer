@@ -15,9 +15,10 @@
 
 		if (mysqli_num_rows($retornoLogin) == 1){
 			while ($row = mysqli_fetch_array($retornoLogin)){
-			$_SESSION['id_usuario'] = $row['id_usuario'];
-			$_SESSION['email'] = $row['email'];
-			$_SESSION['nome_completo'] = $row['nome_completo'];
+				$_SESSION['id_usuario'] = $row['id_usuario'];
+				$_SESSION['email'] = $row['email'];
+				$_SESSION['nome_completo'] = $row['nome_completo'];
+				$_SESSION['nickname'] = $row['nickname'];
 			}
 			header("Location:index.php");
 		} else {		
@@ -30,9 +31,10 @@
 
 		if (mysqli_num_rows($retornoLogin) == 1){
 			while ($row = mysqli_fetch_array($retornoLogin)){
-			$_SESSION['id_usuario'] = $row['id_usuario'];
-			$_SESSION['email'] = $row['email'];
-			$_SESSION['nome_completo'] = $row['nome_completo'];
+				$_SESSION['id_usuario'] = $row['id_usuario'];
+				$_SESSION['email'] = $row['email'];
+				$_SESSION['nome_completo'] = $row['nome_completo'];
+				$_SESSION['nickname'] = $row['nickname'];
 			}
 			header("Location:cadastro_freelancer.php");
 		} else {		
@@ -52,6 +54,7 @@
 			$_SESSION['id_usuario'] = $row['id_usuario'];
 			$_SESSION['email'] = $row['email'];
 			$_SESSION['nome_completo'] = $row['nome_completo'];
+			$_SESSION['nickname'] = $row['nickname'];
 			}
 			header("Location:cadastro-projetos.php");
 		} else {		

@@ -29,7 +29,7 @@
     <div>
     <?php 
     /// SELECT que mostra a listagem o chat entre freela e cliente
-	    $sql = "SELECT id_freela, conversa FROM bate_papo Where id_projeto = $id";
+	    $sql = "SELECT id_freela, nome_usuario, conversa FROM bate_papo Where id_projeto = $id";
 	    //echo $sql;
 	    $retorno = mysqli_query($con, $sql);
 	    if(!$retorno) {
@@ -41,7 +41,7 @@
     <?php
             while($item = mysqli_fetch_array($retorno, MYSQLI_ASSOC)) {
     ?>
-        <p><?php echo $item ['id_freela']; ?>: <?php echo $item ['conversa']; ?></p>
+        <p><?php echo $item ['nome_usuario']; ?>: <?php echo $item ['conversa']; ?></p>
     <?php 
             }
         }

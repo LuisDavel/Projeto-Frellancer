@@ -82,11 +82,12 @@
 					    	</td>
                             <td><?php echo $item['tipo_servico']; ?></td>
                             <td><?php echo $item['prazo']; ?></td>
-                            <td><a href="bate-papo.php?id= <?php echo $item['id_projetos']; ?>" class="btn btn-primary">Resolver</a></td>
+                            <td><a href="processa_projeto.php?id= <?php echo $item['id_projetos']; ?>" class="btn btn-primary">Resolver</a></td>
                         </tr>
                         
 	        <?php
-	        		}
+					}
+					// RESOLVER ASSUNTO DO BATE PAPO, E ADD O ID_FREELA NO PROJETOS
             ?>
             
 			</tbody>
