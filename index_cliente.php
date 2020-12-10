@@ -122,7 +122,7 @@
     
   <?php 
 
-    $sql = "SELECT * FROM bate_papo where id_cliente = $id_usuario";
+    $sql = "SELECT * FROM bate_papo, projetos where projetos.id_cliente = $id_usuario";
     $retorno = mysqli_query($con, $sql);
     if(!$retorno) {
         echo mysqli_error($con);

@@ -82,7 +82,7 @@
 					    	</td>
                             <td><?php echo $item['tipo_servico']; ?></td>
                             <td><?php echo $item['prazo']; ?></td>
-                            <td><a href="processa_projeto.php?id= <?php echo $item['id_projetos']; ?>" class="btn btn-primary">Resolver</a></td>
+                            <td><a href="termo_compromisso.php?id= <?php echo $item['id_projetos']; ?>" class="btn btn-primary">Resolver</a></td>
                         </tr>
                         
 	        <?php
@@ -92,9 +92,11 @@
             
 			</tbody>
     </table>
-    
+
     <?php            
         } 
     ?>
+
+
 </body>
 </html>

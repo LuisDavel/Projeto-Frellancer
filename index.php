@@ -160,7 +160,7 @@
   </div>
 </div>  
 
-    <footer class="footer bg-dark" style="height: 80px;">
+    <footer class="footer bg-dark " style="height: 80px;">
             <div class="container ">
               <span class=" text-white d-flex justify-content-center"> Copyright © 2020 | Criado por João Paulo, Luis Davel e Osmar Junior</span>
             </div>
