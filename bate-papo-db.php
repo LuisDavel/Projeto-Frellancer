@@ -14,7 +14,7 @@
     	echo mysqli_error($con);
     } else {
         $item = mysqli_fetch_array($retorno, MYSQLI_ASSOC);
-        $id_cliente = $item['id_projetos'];
+        $id_cliente = $item['id_cliente'];
             
     };
     

@@ -75,8 +75,9 @@
     <?php 
         $sql = "SELECT * FROM bate_papo where id_cliente = $id_usuario";
         $retorno = mysqli_query($con, $sql);
-        if (mysqli_num_rows($retorno) == 1){
-    
+        if(!$retorno) {
+            echo mysqli_error($con);
+        } else {
 
 	        $sql = "SELECT * FROM projetos WHERE id_cliente = '$id_usuario'";
 	        //echo $sql;
@@ -97,17 +98,10 @@
                     <img class="foto" src= "img_projeto/<?php echo $item ['foto']; ?>" alt="<?php echo $item ['foto'];?>">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $item ['nome_projeto']; ?></h5>
-                        <?php 
-                            $sql = "SELECT MAX(id_chat) as maxId FROM bate_papo WHERE id_cliente = '$id_usuario'";
-	                        $retorno = mysqli_query($con, $sql);
-                            if($item = mysqli_fetch_array($retorno, MYSQLI_ASSOC) == 1){
-                        ?>
-                         <p class="card-text"><?php echo $item ['conversa']; ?></p>
+                         <p class="card-text"><?php echo $item ['descricao_projeto']; ?></p>
 
-                        <?php
-                            }
-                        ?>
-                        <a href="bate-papo.php?id= <?php echo $item['id_projetos']; ?>" class="btn btn-primary">Responder</a>
+                     
+                        <a href="bate-papo.php?id=<?php echo $item['id_projetos']; ?>" class="btn btn-primary">Responder</a>
                     </div>
                 </div>
           </div>

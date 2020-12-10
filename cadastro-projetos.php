@@ -8,7 +8,7 @@
     header("Location:index.php");
   }
 
-  echo($_SESSION['nome_completo'])
+ // echo($_SESSION['nome_completo'])
 ?>
 
 
@@ -18,7 +18,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro do Projeto</title>
+  <style>
+      .form{
+        width: 1000px;
+          
+      }
 
+
+  </style>
     
     
     <!-- Abertuda do SQL para pesquisa de tipos de serviços desejados para efetuar a abertura do projeto -->
@@ -40,29 +47,35 @@
 
 </head>
 <body>
-    <section>
-        <form class="" action="cadastro-projetos-db.php" enctype="multipart/form-data" method="post">
-            <br>
-            <div>
-                <label for="nome-projeto">Nome do projeto</label><br>
-                <input class='' type="text" name="nome-projeto" id="nome-projeto" maxlength="100" required>
-            </div><br>
-
-            <div>
-                <label for="descricao-projeto">Descrição do Projeto</label><br>
-                <textarea id="story" name="descricao-projeto" rows="5" cols="33" required></textarea>
-            </div><br>
-
-            <div class="form-group">
-                <label for="exampleFormControlFile1">Foto demonstrativa(Opcional)</label><br>
-                <input type="file" class="form-control-file" id="foto" name="foto">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container navbar" id="corNavbar01">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active"></li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="login.php?acao=sair">Trocar de usuário</a>
+                    </li>
+                    <li class="nav-item active">
+                    </li>
+                </ul>
+                <a class="btn btn-info my-2 my-sm-0 text-white" href="index_cliente.php" type="submit" value="">Listar Projetos</a>
             </div>
+        </nav>      
+    </header>
+<br>
+<br>
+<br>
 
-            <div>
-                <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Tipo do serviço</label><br>
-                <select name="servico-projeto" id="servico" required >
-                    <option selected> Escolha </option>
-                    <?php 
+    <div class ="d-flex justify-content-center">
+        <form class = "form "  action="cadastro-projetos-db.php" enctype="multipart/form-data" method="post">
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Nome do projeto</label>
+              <input type="text" class="form-control" name="nome-projeto" id="exampleFormControlInput1" required>
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">Tipo de serviço a ser prestado:</label>
+              <select class="form-control" name="servico-projeto" id="exampleFormControlSelect1" required>
+              <?php 
 			    		while($item = mysqli_fetch_array($retorno, MYSQLI_ASSOC)) {
 			    	?>
 			    		<option value="<?php echo $item['nome_servico']; ?>"><?php echo $item['nome_servico']; ?></option>
@@ -70,31 +83,46 @@
 			    		}
 			    	?>
                 </select>    
-            </div> <br>
-
-    <?php 
-		}
-	?>
-    <!-- Fechamento do SQl de preenchimento do tipo de serviço -->
+            <?php 
+	        	}
+	        ?>
+              </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlFile1">Foto demonstrativa</label><br>
+                <input type="file" class="form-control-file" id="foto" name="foto" required>
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Descrição do Projeto</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" name="descricao-projeto" rows="3" required></textarea>
+            </div>
 
             <label for="prazo">Prazo</label><br>
             <input type=date step="1" name="prazo-projeto" required>
             <input type="time" id="appt" name="prazo-tempo" min="09:00" max="18:00" required><br><br>
-            <label for="orcamento">Orçamento</label><br>
-            <input class="" type="number" name="orcamento-projeto" id="nome-projeto" maxlength="100" required><br><br>
 
-            <label for="valor-projeto">Valor do projeto</label><br>
-            <input type="text" id="valor" name="valor-projeto" required> <br><br>
-
-            <label for="nivel-tecnico">Nivel de Experiência</label><br>
-            <input class="" type="text" name="nivel-experiencia" id="nivel-experiencia" required>
-            <br>
-
-            <button type="submit" class="btn btn-primary my-1">Enviar</button>
-
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">ja possui orçamento</label>
+              <select class="form-control" name="orcamento-projeto" id="exampleFormControlSelect1" required>
+                <option>Sim</option>
+                <option>Não</option>
+              </select>
+            </div>
+            <div class="form-group">
+                <label for="valor-projeto">Valor minimo do projeto</label><br>
+                <input class="form-control" type="text" id="valor" name="valor-projeto" required>
+            </div>
+            <div class="form-group">
+                <label for="nivel-tecnico">Nivel de Experiência</label><br>
+                <select class="form-control" name="nivel-experiencia" id="exampleFormControlSelect1" required >
+                    <option>Sim</option>
+                    <option>Não</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-info my-2 my-sm-0 text-white">Publicar o projeto</button>
         </form>
-    
-    </section>
+    </div>
+
 </body>
 
 

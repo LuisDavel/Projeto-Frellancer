@@ -42,10 +42,29 @@
 
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
+    <style>
+       
 
+    </style>
 </head>
-<a href="index.php">Início</a>
+
 <body class="animsition">
+    <header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container navbar" id="corNavbar01">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active"></li>
+                        <li class="nav-item active">
+                        </li>
+                        <li class="nav-item active">
+                            <p class="nav-link">Seja bem-vindo! :D</p>
+                        </li>
+                    </ul>
+                    <a class="btn btn-info my-2 my-sm-0" href="index.php" type="submit" value="">Desejo voltar ao Início</a>
+                </div>
+            </nav>      
+
+        </header>
     <div class="page-wrapper">
         <div class="page-content--bge5">
             <div class="container">
@@ -95,6 +114,12 @@
         </div>
 
     </div>
+    
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted"></span>
+      </div>
+    </footer>
 
     <!-- Jquery JS-->
     <script src="vendor/jquery-3.2.1.min.js"></script>
@@ -120,7 +145,12 @@
     <!-- Main JS-->
     <script src="js/main.js"></script>
 
-</body>
+    <footer class="footer bg-dark" style="height: 80px;">
+            <div class="container ">
+            </div>
+    </footer>
 
+</body>
+                                       
 </html>
 <!-- end document-->
