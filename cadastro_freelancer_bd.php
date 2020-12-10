@@ -31,7 +31,7 @@
      }
 
     $sql = "UPDATE usuario
-    SET nome_completo = '$nome' , foto = '$novo', titulo_profissional = '$novo2', experiencia = '$experiencia' , nickname = '$nome_fantasia', area_atuacao = '$area_atuacao'  
+    SET nome_completo = '$nome' , foto = '$novo', titulo_profissional = '$novo2', experiencia = '$experiencia' , nickname = '$nome_fantasia', area_atuacao = '$area_atuacao', primeiro_login = 1  
     WHERE id_usuario = $id_usuario";
     
     $retorno = mysqli_query($con, $sql);

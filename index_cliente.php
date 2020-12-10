@@ -78,7 +78,7 @@
 	        } else {
 
   ?>
-<h2 class="d-flex justify-content-center" > | Projetos catalogados | </h2>
+<h2 class="d-flex justify-content-center" > | Meus Projetos | </h2>
 <div class="sim d-flex justify-content-center">
   <div class="row ">
     <?php
@@ -93,7 +93,7 @@
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $item ['nome_projeto']; ?></h5>
                         <p class="card-text"><?php echo $item ['descricao_projeto']; ?></p>
-                        <a href="mostra-projeto.php?id= <?php echo $item['id_projetos']; ?>" class="btn btn-primary">Saiba Mais</a>
+                        <a href="mostra-projet.php?id= <?php echo $item['id_projetos']; ?>" class="btn btn-primary">Visualizar</a>
                     </div>
                 </div>
           </div>
@@ -119,37 +119,40 @@
 <br><br>
 <h2 class="d-flex justify-content-center" > | Projetos em andamento | </h2>
 <br> <br>
+<div class="cor d-flex justify-content-center">
+<br>
+  <div class="row ">
     
-  <?php 
-
-    $sql = "SELECT * FROM bate_papo, projetos where projetos.id_cliente = $id_usuario";
+  <?php
+    $sql = "SELECT * FROM projetos WHERE id_cliente = $id_usuario";
+    //echo $sql;
     $retorno = mysqli_query($con, $sql);
     if(!$retorno) {
         echo mysqli_error($con);
     } else {
 
-        $sql = "SELECT * FROM projetos WHERE id_cliente = '$id_usuario'";
-        //echo $sql;
+     
+        $sql = "SELECT foto, nome_projeto, id_projetos
+                FROM projetos AS P
+                INNER JOIN bate_papo AS B ON P.id_projetos = B.id_projeto";
+
         $retorno = mysqli_query($con, $sql);
         if(!$retorno) {
             echo mysqli_error($con);
         } else {
-    
+
   ?>
-<div class="cor d-flex justify-content-center">
-<br>
-  <div class="row ">
     <?php
-          
-              while($item2 = mysqli_fetch_array($retorno, MYSQLI_ASSOC)) {
+              while($item = mysqli_fetch_array($retorno, MYSQLI_ASSOC)) {
     ?>
             
           <div class="algo">
                 <div class="card"  >
-                    <img class="card-img foto" src= "img_projeto/<?php echo $item2 ['foto']; ?>" alt="<?php echo $item ['foto'];?>">
+                    <img class="card-img foto" src= "img_projeto/<?php echo $item ['foto']; ?>" alt="<?php echo $item ['foto'];?>">
                     <div class="card-body">
-                        <h2 class="card-title"><?php echo $item2 ['nome_projeto']; ?></h2>
-                        <a href="bate-papo.php?id= <?php echo $item2['id_projetos']; ?>" class="btn btn-primary">Abrir conversa</a>
+                        <h2 class="card-title"><?php echo $item ['nome_projeto']; ?></h2>
+                        <a href="bate-papo.php?id= <?php echo $item['id_projetos']; ?>" class="btn btn-primary">Abrir conversa</a>
+                        
                     </div>
                 </div>
                 <br>
@@ -158,7 +161,7 @@
        
 
     <?php  
-            }
+              }
         }
      }
      

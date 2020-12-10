@@ -86,7 +86,7 @@
                                 </div>
                                 <div class="login-checkbox">
                                     <label>
-                                        <input type="checkbox" name="aggree" required="">Aceito os termos de uso
+                                        <input type="checkbox" name="aggree" required=""><a href="termo_uso.php">Aceito os termos de uso</a>
                                     </label>
                                 </div>
                                 <button class="au-btn au-btn--block au-btn--blue m-b-20" type="submit">cadastrar</button>

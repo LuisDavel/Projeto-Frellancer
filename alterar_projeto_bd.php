@@ -16,6 +16,9 @@
     $arquivo  = $_FILES['foto'];
     $foto_projeto  = null;
 
+    $id_usuario = @$_SESSION['id_usuario'];
+    //$id = $_GET['id'];
+
     if ($arquivo) {
         $caminho = $arquivo['tmp_name'];
         $novo = date('YmdHis') . $arquivo['name'];
@@ -36,12 +39,12 @@
 
 
     }else{
-        $sql = "INSERT INTO projetos VALUES (null, '$nome_projeto', '$descri_projeto', '$novo', '$tipo_servico', '$orcamento_projeto' , '$prazo_projeto', '$valor_projeto', '$nivel_tecnico', '$usuario', 0 )";
+        $sql = "UPDATE projetos set (null, '$nome_projeto', '$descri_projeto', '$novo', '$tipo_servico', '$orcamento_projeto' , '$prazo_projeto', '$valor_projeto', '$nivel_tecnico', '$usuario', 0 ) WHere id_cliente = $id_usuario";
 
         $retorno = mysqli_query($con, $sql);
     
         if ($retorno) {
-        header('location: listar_projetos_cliente.php?retorno=AtualizaSucess');
+        header('location: index.php?retorno=AtualizaSucess');
         }else{
             echo 'Cadastro não foi cadastrado! Erro: ' .mysqli_error($con);
         };

@@ -181,10 +181,8 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active"></li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="mostra-projeto.php?id=<?php echo $id?>">Visualizar projeto</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="cadastro.php">Perfil</a>
                 </li>
             </ul>
             <a class="btn btn-info my-2 my-sm-0" href="index.php" type="submit" value="">Voltar para o inicio</a>
@@ -255,14 +253,17 @@
                   <p>Valor minimo do projeto: <?php echo $item_i ['valor']; ?></p>
                   <p> Possui orçamento:  <?php echo $item_i ['orcamento']; ?></p>
                   <p> Tipo de Freela: <?php echo $item_i ['tipo_servico']; ?></p>
-                  <p> Prazo de entrega: <?php echo $item_i ['prazo']; ?></p>
+                  <p> Prazo de entrega: <?php echo $item_i ['prazo']; ?></p><br>
+                  <a class="btn btn-info my-2 my-sm-0" href="estrelas.php?id=<?php echo $id ?>" >Terminar</a><br>
                 </div>
+                
 
  <?php
    }
  }
  ?>
 
+                  
               </div>
             </div>
           </div>

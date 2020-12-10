@@ -117,7 +117,7 @@
                 <input type="text" class="form-control" name="nome-projeto" id="exampleFormControlInput1" value="<?php echo $item['nivel_tecnico']; ?>" readonly>
             </div>
             <div class ="d-flex justify-content-center"> 
-              <a href="termo_compromisso.php?id= <?php echo $item['id_projetos']; ?>" class="btn btn-info my-2 my-sm-0 text-white">Aceitar</a>
+              
             </div>
         </form>
 	</div>
