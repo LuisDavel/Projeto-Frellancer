@@ -53,10 +53,12 @@
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active"></li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="login.php?acao=sair">Trocar de usuário</a>
+                      <a class="nav-link" href="index.php">Inicio</a>
                     </li>
                     <li class="nav-item active">
+                        <a class="nav-link" href="login.php?acao=sair">Trocar de usuário</a>
                     </li>
+                    
                 </ul>
                 <a class="btn btn-info my-2 my-sm-0 text-white" href="index_cliente.php" type="submit" value="">Listar Projetos</a>
             </div>
@@ -119,7 +121,9 @@
                     <option>Não</option>
               </select>
             </div>
-            <button type="submit" class="btn btn-info my-2 my-sm-0 text-white">Publicar o projeto</button>
+            <div class ="d-flex justify-content-center"> 
+              <button type="submit" class="btn btn-info my-2 my-sm-0 text-white">Publicar o projeto</button>
+            </div>
         </form>
     </div>
 

@@ -2,35 +2,36 @@
     include('conexao.php');
 ?>
 <?php 
-    $id_usuario = @$_SESSION['id_usuario'];
-    $area_atuacao     = $_POST['servico-projeto'];
-    $senha   = $_POST['senha'];
-    $arquivo  = $_FILES['foto'];
-    $arquivo2  = $_FILES['foto2'];
-    $foto     = 'null';
-    $descricao = $_POST['descricao'];
-    $apelido = $_POST['apelido'];
-    $data = date('Y-m-d');
-    $foto_certificado = 'null';
+    $id_usuario           = @$_SESSION['id_usuario'];
+    $nome                 = $_POST['nome'];
+    $experiencia          = $_POST['experiencia'];
+    $area_atuacao         = $_POST['area_atuacao'];
+    $nome_fantasia        = $_POST['nome_fantasia'];
+    $arquivoPerfil        = $_FILES['fotoPerfil'];
+    $fotoPerfil           = 'null';
+    $arquivoProfissional  = $_FILES['fotoProfissional'];
+    $fotoProfissional     = 'null';
+    $data                 = date('Y-m-d');
 
-    if ($arquivo) {
-       $caminho = $arquivo['tmp_name'];
-       $novo = date('YmdHis') . $arquivo['name'];
+
+    if ($arquivoPerfil) {
+       $caminho = $arquivoPerfil['tmp_name'];
+       $novo = date('YmdHis') . $arquivoPerfil['name'];
        if( move_uploaded_file($caminho, "img_upload_freelancer/$novo")){
-            $foto = "'$novo'";
+            $fotoPerfil = "'$novo'";
        }
     }
 
-    if ($arquivo2) {
-        $caminho2 = $arquivo2['tmp_nam2e'];
-        $novo2 = date('YmdHis') . $arquivo2['name2'];
+    if ($arquivoProfissional) {
+        $caminho2 = $arquivoProfissional['tmp_name'];
+        $novo2 = date('YmdHis') . $arquivoProfissional['name'];
         if( move_uploaded_file($caminho2, "img_certificado/$novo2")){
-             $foto_certificado = "'$novo2'";
+             $fotoProfissional = "'$novo2'";
         }
      }
 
     $sql = "UPDATE usuario
-    SET titulo_profissional = '$novo2', nickname = '$apelido', experiencia = '$descricao', area_atuacao ='$area_atuacao', senha = '$senha', foto = '$novo', primeiro_login = 1
+    SET nome_completo = '$nome' , foto = '$novo', titulo_profissional = '$novo2', experiencia = '$experiencia' , nickname = '$nome_fantasia', area_atuacao = '$area_atuacao'  
     WHERE id_usuario = $id_usuario";
     
     $retorno = mysqli_query($con, $sql);

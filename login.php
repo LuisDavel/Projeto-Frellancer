@@ -60,7 +60,7 @@
                             <p class="nav-link">Seja bem-vindo! :D</p>
                         </li>
                     </ul>
-                    <a class="btn btn-info my-2 my-sm-0" href="index.php" type="submit" value="">Desejo voltar ao Início</a>
+                    <a class="btn btn-info my-2 my-sm-0" href="inicio.html" type="submit" value="">Desejo voltar ao Início</a>
                 </div>
             </nav>      
 

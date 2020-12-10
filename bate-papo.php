@@ -187,7 +187,7 @@
                     <a class="nav-link" href="cadastro.php">Perfil</a>
                 </li>
             </ul>
-            <a class="btn btn-info my-2 my-sm-0" href="cadastro.php" type="submit" value="">Voltar para o inicio</a>
+            <a class="btn btn-info my-2 my-sm-0" href="index.php" type="submit" value="">Voltar para o inicio</a>
         </div>
     </nav>      
 
